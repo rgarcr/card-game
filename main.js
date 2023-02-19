@@ -18,6 +18,12 @@ object{
 }
 */
 
+let images = document.querySelectorAll("div>img");
+for(let elem of images){
+    elem.addEventListener("click", flipCard);
+}
+
+
 let cardObj = {
     pair1: [1, 2, "./imgs/brownie.jpg"], //pair with a number
     pair2: [3, 4, "./imgs/concha.jpg"],
