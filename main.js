@@ -1,38 +1,45 @@
-//document.querySelector(".card-container").addEventListener("click", test)
-console.log("test");
-let obj1 = document.querySelector("img:nth-child(12) ");
-let count = 0;
-//console.log(obj1)
-function test(obj) {
-    // let obj = document.querySelector(".card-container");
-    //console.log(obj);
-    count++;
-    /*
-    if(count <= 2){
-    console.log(obj.target.style.border, 'test')
-    
-    if (!obj.target.style.border || obj.target.style.border==="none")
-        obj.target.style.border = "blue solid 5px";
-    else
-        obj.target.style.border = "none";
 
-    }
-*/    
-    
+/* Associate a number with an image
+
+/*
+*12 cards each has one match
+*6 images to match a pair of card
+*randomize 2 cards with the same image
+*no more than 2 cards with the same image
+*Pair 1,2,3..etc with a picture
+object{
+ 1-6 store 2 numbers
+ 1:1,2, img
+ 2:3,4, img
+ 3:5,6, img
+ 4:7,8, img
+ 5:9,10, img
+ 6:11,12, img
 }
+*/
 
-//document.querySelectorAll("img").addEventListener("click", testImgs);
-const matches = document.querySelectorAll("div > img");
-//console.log(matches[2])
-function testImgs(obj) {
-    for (let elem of obj) {
-        // console.log(elem)
-        elem.addEventListener('click', test)
-    }
-}
+let cardObj = {
+    pair1: [1, 2, "./imgs/brownie.jpg"], //pair with a number
+    pair2: [3, 4, "./imgs/concha.jpg"],
+    pair3: [5, 6, "./imgs/donuts.jpg"],
+    pair4: [7, 8, "./imgs/ice-cream.jpg"],
+    pair5: [9, 10, "./imgs/muffin.jpg"],
+    pair6: [11, 12, "./imgs/pancakes.jpg"]
+};
 
-testImgs(matches)
+//loop through cardsObject, check if any attributes have a matching number to
+//the end of the classList of the selected
+function flipCard(element){
 
-function tempBlue(elem) {
-    elem.style.border = "solid blue 5px";
+    for (key in cardObj) {
+        //loop through keys loop
+        let num1 = cardObj[key][0];
+        let num2 = cardObj[key][1]
+        let img = cardObj[key][2]
+        console.log(key, num1, num2)
+        if(element.target.classList.contains('card'+num1) || element.target.classList.contains('card' + num2)){
+            element.target.src=img;    
+            return;
+        }
+    }    
 }
