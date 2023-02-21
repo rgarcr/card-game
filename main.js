@@ -23,14 +23,31 @@ for(let elem of images){
     elem.addEventListener("click", flipCard);
 }
 
+//create array of random numbers
+function createRandomList(){
+    let arr = [];
+    let num = Math.floor(Math.random() * (13 - 1) + 1);
+    arr.push(num);
+     while(arr.length != 12){
+         num = Math.floor(Math.random() * (13 - 1) + 1);
+         if(!arr.includes(num))
+           arr.push(num)
+        //console.log(num, arr)   
+     }
+    return arr;
+}
+
+let arr = createRandomList();
+console.log(arr)
+
 
 let cardObj = {
-    pair1: [1, 2, "./imgs/brownie.jpg"], //pair with a number
-    pair2: [3, 4, "./imgs/concha.jpg"],
-    pair3: [5, 6, "./imgs/donuts.jpg"],
-    pair4: [7, 8, "./imgs/ice-cream.jpg"],
-    pair5: [9, 10, "./imgs/muffin.jpg"],
-    pair6: [11, 12, "./imgs/pancakes.jpg"]
+    pair1: [arr[0], arr[1], "./imgs/brownie.jpg"], //pair with a number
+    pair2: [arr[2], arr[3], "./imgs/concha.jpg"],
+    pair3: [arr[4], arr[5], "./imgs/donuts.jpg"],
+    pair4: [arr[6], arr[7], "./imgs/ice-cream.jpg"],
+    pair5: [arr[8], arr[9], "./imgs/muffin.jpg"],
+    pair6: [arr[10], arr[11], "./imgs/pancakes.jpg"]
 };
 
 //loop through cardsObject, check if any attributes have a matching number to
@@ -42,7 +59,7 @@ function flipCard(element){
         let num1 = cardObj[key][0];
         let num2 = cardObj[key][1]
         let img = cardObj[key][2]
-        console.log(key, num1, num2)
+        //console.log(key, num1, num2)
         if(element.target.classList.contains('card'+num1) || element.target.classList.contains('card' + num2)){
             element.target.src=img;    
             return;
