@@ -67,6 +67,7 @@ function flipCard(element) {
                 count++;
                 cardsSelected.push(element.target)
                 element.target.src = img;
+                cardsSelected[0].style ="pointer-events: none";
 
                 /*
                 Compare when two cards are selected
@@ -75,10 +76,13 @@ function flipCard(element) {
                 */
                 if (count === 2) {
                     if(cardsSelected[0].src === cardsSelected[1].src && cardsSelected[0].classList != cardsSelected[1].classList){
+                        cardsSelected[0].style ="pointer-events: none";
+                        cardsSelected[1].style ="pointer-events: none";
                         cardsSelected.length = 0;
                         count=0;
                     }
                     else{
+                        cardsSelected[0].style ="pointer-events: auto";
                         //add delay timer 
                         setTimeout(() => {
                             count = 0;
