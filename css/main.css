@@ -1,4 +1,4 @@
-body{
+body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,25 +7,28 @@ body{
   width: 100vw;
   background: #f3e9cb;
 }
-div{
-    
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-img{
-    width: 20%;
-    margin: 1%;
-    border-radius: 5%;
-    height: auto;
-    aspect-ratio: 16/20;
+
+div {
+
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-img:hover{
+img {
+  width: 20%;
+  margin: 1%;
+  border-radius: 5%;
+  height: auto;
+  aspect-ratio: 16/20;
+}
+
+img:hover {
   transform: scale(1.1);
 }
+
 @media (max-width: 1024px) {
   div {
     width: 90%;
@@ -35,5 +38,12 @@ img:hover{
 @media (max-width: 768px) {
   div {
     width: 100%;
+  }
+
+}
+
+@media (max-width:480px) {
+  div>img {
+    width: 25%;
   }
 }
